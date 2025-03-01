@@ -6,15 +6,15 @@ class Book {
         this.author = author;
         this.isbn = isbn;
         this.copies = copies;
-    }
+    } // This is too br able to give the class of the book with information in it
 
     getDetails() {
         return `Title: ${this.title}, Author: ${this.author}, ISBN: ${this.isbn}, Copies: ${this.copies}`;
-    }
+    } //this returns it as a string all together.
 
     updateCopies(quantity) {
         this.copies += quantity;
-    }
+    } // this is too show the updated amount for the book
 }
 
 // "Task 2 - Created Borrower Class"
@@ -24,7 +24,7 @@ class Borrower {
         this.name = name;
         this.borrowerId = borrowerId;
         this.borrowedBooks = [];
-    }
+    } //
 
     borrowBook(book) {
         this.borrowedBooks.push(book);
