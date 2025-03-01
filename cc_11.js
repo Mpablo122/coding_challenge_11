@@ -16,6 +16,7 @@ class Book {
     }
 }
 
+// "Task 2 - Created Borrower Class" 
 
 class Borrower {
     constructor(name, borrowerId) {
