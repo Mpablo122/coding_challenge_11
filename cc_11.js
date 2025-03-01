@@ -1,4 +1,5 @@
-//Task 1 "Created Book Class"
+//"Task 1 - Created Book Class"
+
 class Book {
     constructor(title, author, isbn, copies) {
         this.title = title;
@@ -16,7 +17,7 @@ class Book {
     }
 }
 
-// "Task 2 - Created Borrower Class" 
+// "Task 2 - Created Borrower Class"
 
 class Borrower {
     constructor(name, borrowerId) {
@@ -34,7 +35,7 @@ class Borrower {
     }
 }
 
-//Task 3 Created Library class
+// "Task 3 - Created Library Class"
 
 class Library {
     constructor() {
@@ -49,20 +50,34 @@ class Library {
     listBooks() {
         this.books.forEach(book => console.log(book.getDetails()));
     }
-    lendBook(borrowerId, isbn){
+
+// "Task 4 - Implemented Book Borrowing"
+
+
+    lendBook(borrowerId, isbn) {
         const book = this.books.find(b => b.isbn === isbn);
         const borrower = this.borrowers.find(b => b.borrowerId === borrowerId);
 
-        if(book && book.copies > 0 && borrower){
+        if (book && book.copies > 0 && borrower) {
             book.updateCopies(-1);
             borrower.borrowBook(book.title);
         }
     }
+
+// "Task 5 - Implemented Book Returns"
+
+    returnBook(borrowerId, isbn) {
+        const book = this.books.find(b => b.isbn === isbn);
+        const borrower = this.borrowers.find(b => b.borrowerId === borrowerId);
+
+        if (book && borrower && borrower.borrowedBooks.includes(book.title)) {
+            book.updateCopies(1);
+            borrower.returnBook(book.title);
+        }
+    }
 }
 
-//Task 4 implemented book borrowing
-
-
+// Test Cases
 const book1 = new Book("The Great Gatsby", "F. Scott Fitzgerald", 123456, 5);
 console.log(book1.getDetails());
 // Expected output: "Title: The Great Gatsby, Author: F. Scott Fitzgerald, ISBN: 123456, Copies: 5"
@@ -82,6 +97,7 @@ console.log(borrower1.borrowedBooks);
 
 const library = new Library();
 library.addBook(book1);
+library.borrowers.push(borrower1);
 library.listBooks();
 // Expected output: "Title: The Great Gatsby, Author: F. Scott Fitzgerald, ISBN: 123456, Copies: 4"
 
@@ -90,3 +106,9 @@ console.log(book1.getDetails());
 // Expected output: "Title: The Great Gatsby, Author: F. Scott Fitzgerald, ISBN: 123456, Copies: 3"
 console.log(borrower1.borrowedBooks);
 // Expected output: ["The Great Gatsby"]
+
+library.returnBook(201, 123456);
+console.log(book1.getDetails());
+// Expected output: "Title: The Great Gatsby, Author: F. Scott Fitzgerald, ISBN: 123456, Copies: 4"
+console.log(borrower1.borrowedBooks);
+// Expected output: []
