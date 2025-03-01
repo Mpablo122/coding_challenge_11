@@ -24,7 +24,7 @@ class Borrower {
         this.name = name;
         this.borrowerId = borrowerId;
         this.borrowedBooks = [];
-    } //
+    } // making a class for the borrowers 
 
     borrowBook(book) {
         this.borrowedBooks.push(book);
@@ -32,7 +32,7 @@ class Borrower {
 
     returnBook(book) {
         this.borrowedBooks = this.borrowedBooks.filter(b => b !== book);
-    }
+    } //filtering it as just the book that should be returned 
 }
 
 // "Task 3 - Created Library Class"
