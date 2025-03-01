@@ -41,11 +41,11 @@ class Library {
     constructor() {
         this.books = [];
         this.borrowers = [];
-    }
+    } //making a class for the library 
 
     addBook(book) {
         this.books.push(book);
-    }
+    } // adding the books that should be available in the library
 
     listBooks() {
         this.books.forEach(book => console.log(book.getDetails()));
@@ -77,7 +77,7 @@ class Library {
     }
 }
 
-// Test Cases
+
 const book1 = new Book("The Great Gatsby", "F. Scott Fitzgerald", 123456, 5);
 console.log(book1.getDetails());
 // Output should be: "Title: The Great Gatsby, Author: F. Scott Fitzgerald, ISBN: 123456, Copies: 5"
