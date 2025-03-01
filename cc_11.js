@@ -75,7 +75,7 @@ class Library {
             borrower.returnBook(book.title);
         }
     }
-}
+} // shows the amount of copies after book has been returned 
 
 
 const book1 = new Book("The Great Gatsby", "F. Scott Fitzgerald", 123456, 5);
