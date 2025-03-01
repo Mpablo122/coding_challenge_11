@@ -34,6 +34,23 @@ class Borrower {
     }
 }
 
+//Task 3 Created Library class
+
+class Library {
+    constructor() {
+        this.books = [];
+        this.borrowers = [];
+    }
+
+    addBook(book) {
+        this.books.push(book);
+    }
+
+    listBooks() {
+        this.books.forEach(book => console.log(book.getDetails()));
+    }
+}
+
 
 const book1 = new Book("The Great Gatsby", "F. Scott Fitzgerald", 123456, 5);
 console.log(book1.getDetails());
