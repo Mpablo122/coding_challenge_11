@@ -62,7 +62,7 @@ class Library {
             book.updateCopies(-1);
             borrower.borrowBook(book.title);
         }
-    }
+    } //shows the amount of books left after lending 1 
 
 // "Task 5 - Implemented Book Returns"
 
