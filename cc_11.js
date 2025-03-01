@@ -80,35 +80,35 @@ class Library {
 // Test Cases
 const book1 = new Book("The Great Gatsby", "F. Scott Fitzgerald", 123456, 5);
 console.log(book1.getDetails());
-// Expected output: "Title: The Great Gatsby, Author: F. Scott Fitzgerald, ISBN: 123456, Copies: 5"
+// Output should be: "Title: The Great Gatsby, Author: F. Scott Fitzgerald, ISBN: 123456, Copies: 5"
 
 book1.updateCopies(-1);
 console.log(book1.getDetails());
-// Expected output: "Title: The Great Gatsby, Author: F. Scott Fitzgerald, ISBN: 123456, Copies: 4"
+// Output should be: "Title: The Great Gatsby, Author: F. Scott Fitzgerald, ISBN: 123456, Copies: 4"
 
 const borrower1 = new Borrower("Alice Johnson", 201);
 borrower1.borrowBook("The Great Gatsby");
 console.log(borrower1.borrowedBooks);
-// Expected output: ["The Great Gatsby"]
+// Output should be: ["The Great Gatsby"]
 
 borrower1.returnBook("The Great Gatsby");
 console.log(borrower1.borrowedBooks);
-// Expected output: []
+// Output should be: []
 
 const library = new Library();
 library.addBook(book1);
 library.borrowers.push(borrower1);
 library.listBooks();
-// Expected output: "Title: The Great Gatsby, Author: F. Scott Fitzgerald, ISBN: 123456, Copies: 4"
+// Output should be: "Title: The Great Gatsby, Author: F. Scott Fitzgerald, ISBN: 123456, Copies: 4"
 
 library.lendBook(201, 123456);
 console.log(book1.getDetails());
-// Expected output: "Title: The Great Gatsby, Author: F. Scott Fitzgerald, ISBN: 123456, Copies: 3"
+// Output should be: "Title: The Great Gatsby, Author: F. Scott Fitzgerald, ISBN: 123456, Copies: 3"
 console.log(borrower1.borrowedBooks);
-// Expected output: ["The Great Gatsby"]
+// Output should be: ["The Great Gatsby"]
 
 library.returnBook(201, 123456);
 console.log(book1.getDetails());
-// Expected output: "Title: The Great Gatsby, Author: F. Scott Fitzgerald, ISBN: 123456, Copies: 4"
+// Output should be: "Title: The Great Gatsby, Author: F. Scott Fitzgerald, ISBN: 123456, Copies: 4"
 console.log(borrower1.borrowedBooks);
-// Expected output: []
+// Output should bet: []
