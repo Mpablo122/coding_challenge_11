@@ -49,6 +49,15 @@ class Library {
     listBooks() {
         this.books.forEach(book => console.log(book.getDetails()));
     }
+    lendBook(borrowerId, isbn){
+        const book = this.books.find(b => b.isbn === isbn);
+        const borrower = this.borrowers.find(b => b.borrowerId === borrowerId);
+
+        if(book && book.copies > 0 && borrower){
+            book.updateCopies(-1);
+            borrower.borrowBook(book.title);
+        }
+    }
 }
 
 //Task 4 implemented book borrowing
@@ -75,3 +84,9 @@ const library = new Library();
 library.addBook(book1);
 library.listBooks();
 // Expected output: "Title: The Great Gatsby, Author: F. Scott Fitzgerald, ISBN: 123456, Copies: 4"
+
+library.lendBook(201, 123456);
+console.log(book1.getDetails());
+// Expected output: "Title: The Great Gatsby, Author: F. Scott Fitzgerald, ISBN: 123456, Copies: 3"
+console.log(borrower1.borrowedBooks);
+// Expected output: ["The Great Gatsby"]
